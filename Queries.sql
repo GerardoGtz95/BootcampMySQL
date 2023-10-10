@@ -16,3 +16,11 @@ JOIN Products p
 ON p.idProduct = op.idProduct
 WHERE o.idOrder = 2;
 
+SELECT c.name, r.date, t.idTable, t.places
+FROM Reservations r
+JOIN Customers c
+ON r.idCustomer = c.idCustomers
+JOIN Tables t
+on r.idTable = t.idTable
+WHERE c.name = 'Gerardo' AND c.lastName = 'Gutierrez';
+
