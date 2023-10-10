@@ -1,3 +1,6 @@
+-- MODIFICAR AGREGAR Y ELIMINAR DATOS
+
+
 -- MUESTRA LA LISTA DE PRODUCTOS DE LA ORDEN 1
 SELECT o.idOrder, p.name, p.price
 FROM Orders o
@@ -16,6 +19,7 @@ JOIN Products p
 ON p.idProduct = op.idProduct
 WHERE o.idOrder = 2;
 
+-- RESERVACIONES DEL CLIENTE CON NOMBRE GERARDO Y APELLIDO GUTIERREZ
 SELECT c.name, r.date, t.idTable, t.places
 FROM Reservations r
 JOIN Customers c
