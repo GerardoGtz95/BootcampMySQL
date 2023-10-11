@@ -74,8 +74,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Reservations` (
   CONSTRAINT `fk_Reservations_Customers`
     FOREIGN KEY (`idCustomer`)
     REFERENCES `mydb`.`Customers` (`idCustomers`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Reservations_Table1`
     FOREIGN KEY (`idTable`)
     REFERENCES `mydb`.`Tables` (`idTable`)
