@@ -1,9 +1,13 @@
 -- MODIFICAR AGREGAR Y ELIMINAR DATOS
--- AGREGAR UN USUARIO UNA RESERVACION AL ELIMINAR EL USUARIO TAMBIEN SE DEBE DE ELIMINAR SU RESERVACION
+-- AGREGAR UN USUARI, UNA RESERVACION AL ELIMINAR EL USUARIO TAMBIEN SE DEBE DE ELIMINAR SU RESERVACION
 -- NOTA: LOS IDS PUEDEN CAMBIAR
 INSERT INTO Customers (name, lastName , birthDate, phoneNumber, email)
 VALUES
 ('José Luis', 'Jerónimo', '1992-10-05', '3320258030', 'jose.jeronimo@gmail.com');
+
+UPDATE Customers
+SET lastName = "López"
+WHERE idCustomers = 8;
 
 INSERT INTO Reservations (date, idCustomer, idTable, idEmployees)
 VALUES 
@@ -21,9 +25,9 @@ JOIN OrdersProducts op
 ON o.idOrder = op.idOrder
 JOIN Products p
 ON p.idProduct = op.idProduct
-WHERE o.idOrder = 2
+WHERE o.idOrder = 1
 
--- TOTAL DE LA ORDEN 2
+-- TOTALES DE LA ORDEN 2
 SELECT o.idOrder 'Orden No',SUM(p.price) as 'Total', SUM(p.price) * 1.16 as `Total IVA`, 
 TRUNCATE((SUM(p.price) * 1.16) * 1.15, 2) as 'Total con Propina'
 FROM Orders o
@@ -40,7 +44,7 @@ JOIN Customers c
 ON r.idCustomer = c.idCustomers
 JOIN Tables t
 on r.idTable = t.idTable
-WHERE c.name = 'José Luis' AND c.lastName = 'Jerónimo';
+WHERE c.name = 'Gerardo' AND c.lastName = 'Gutierrez';
 
 
 -- CUANTAS VECES SE HA PEDIDO LASAGNA
@@ -91,7 +95,7 @@ JOIN OrdersProducts op
 ON o.idOrder = op.idOrder
 JOIN Products p
 ON p.idProduct = op.idProduct
-WHERE c.name = 'Elizabeth'
+WHERE c.name = 'Alejandra'
 GROUP BY p.name;
 
 
