@@ -7,9 +7,9 @@ VALUES
 
 INSERT INTO Reservations (date, idCustomer, idTable, idEmployees)
 VALUES 
-('2023-10-05 20:30:00', 9, 1, 2);
+('2023-10-05 20:30:00', 7, 1, 2);
 
-DELETE FROM Customers WHERE idCustomers = 9;
+DELETE FROM Customers WHERE idCustomers = 7;
 SELECT * FROM Customers;
 SELECT * FROM Reservations;
 
@@ -40,5 +40,58 @@ JOIN Customers c
 ON r.idCustomer = c.idCustomers
 JOIN Tables t
 on r.idTable = t.idTable
-WHERE c.name = 'Gerardo' AND c.lastName = 'Gutierrez';
+WHERE c.name = 'José Luis' AND c.lastName = 'Jerónimo';
+
+
+-- CUANTAS VECES SE HA PEDIDO LASAGNA
+SELECT p.name, COUNT(p.name) as 'Total Lasagna'
+FROM Orders o
+JOIN OrdersProducts op
+ON o.idOrder = op.idOrder
+JOIN Products p
+ON p.idProduct = op.idProduct
+WHERE p.name = 'Lasagna';
+
+
+-- REPORTE DE CUAL ES EL PLATILLO FAVPRITO POR CLIENTE (SUBCONSULTA)
+SELECT Cliente, Platillo, MAX(Total) as 'Comida Favorita' FROM (
+    SELECT COUNT(p.name) as Total, p.name as Platillo, c.name as Cliente
+    FROM Customers c
+    JOIN Orders o
+    ON c.idCustomers = o.idCustomers
+    JOIN OrdersProducts op
+    ON o.idOrder = op.idOrder
+    JOIN Products p
+    ON p.idProduct = op.idProduct
+    WHERE c.name = 'Alejandra' 
+    GROUP BY p.name
+) resultado;
+
+
+-- MISMO REPORTE QUE EL ANTERIOR DIFERENTE MANERA
+SELECT c.name as 'Cliente', p.name as 'Platillo', COUNT(p.name) as 'Comida Favorita'
+FROM Customers c
+JOIN Orders o
+ON c.idCustomers = o.idCustomers
+JOIN OrdersProducts op
+ON o.idOrder = op.idOrder
+JOIN Products p
+ON p.idProduct = op.idProduct
+WHERE c.name = 'Alejandra'
+GROUP BY p.name
+ORDER BY COUNT(p.name) DESC LIMIT 1;
+
+
+-- Lista de compras por cliente
+SELECT c.name as 'Cliente', p.name as 'Platillo', COUNT(p.name) as Total
+FROM Customers c
+JOIN Orders o
+ON c.idCustomers = o.idCustomers
+JOIN OrdersProducts op
+ON o.idOrder = op.idOrder
+JOIN Products p
+ON p.idProduct = op.idProduct
+WHERE c.name = 'Elizabeth'
+GROUP BY p.name;
+
 

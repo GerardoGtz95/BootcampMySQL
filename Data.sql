@@ -59,22 +59,66 @@ INSERT INTO OrdersProducts (idOrder, idProduct)
 VALUES (1, 1), (1, 4), (1, 13), (1, 12);
 
 INSERT INTO OrdersProducts (idOrder, idProduct)
+VALUES (1, 1), (1, 4), (1, 13), (1, 12);
+
+INSERT INTO OrdersProducts (idOrder, idProduct)
 VALUES (2, 1), (2, 2), (2, 3), (2, 10);
 
+-- PARA REPORTE DE COMIDA FAVORITA POR CLIENTE
+-- Cliente 2
+INSERT INTO Orders (idTable, idCustomers, idEmployees)
+VALUES 
+(3, 2, 5),
+(3, 2, 5),
+(3, 2, 6),
+(3, 2, 5),
+(3, 2, 6);
+
+-- Orden 5, 6, 7, 8, 9
+INSERT INTO OrdersProducts (idOrder, idProduct)
+VALUES (5, 1), (5, 10), 
+(6, 1), (6, 10), (6, 9),
+(7, 6), (7, 4), (7, 2),
+(8, 1), (8, 10), 
+(9, 1), (9, 10), (9, 8);
+
+-- Cliente 5
+INSERT INTO Orders (idTable, idCustomers, idEmployees)
+VALUES 
+(2, 5, 6),
+(3, 5, 5),
+(3, 5, 6),
+(2, 5, 6),
+(8, 5, 6);
+
+-- Orden 15, 16, 17, 18, 19
+INSERT INTO OrdersProducts (idOrder, idProduct)
+VALUES (10, 2), (10, 2), (10, 10), (10, 4), (10, 8), (10, 9),
+(11, 1), (11, 10), (11, 9),
+(12, 6), (12, 6), (12, 6), (12, 9),
+(13, 5), (13, 3), 
+(14, 4), (14, 4), (14, 13);
+
+-- Cliente 6
+INSERT INTO Orders (idTable, idCustomers, idEmployees)
+VALUES 
+(1, 6, 5),
+(3, 6, 6);
+
+INSERT INTO OrdersProducts (idOrder, idProduct)
+VALUES (16, 8), (16, 9)
+
+INSERT INTO Orders (idTable, idCustomers, idEmployees)
+VALUES 
+(1, 6, 5),
+
+INSERT INTO OrdersProducts (idOrder, idProduct)
+VALUES (17, 8), (17, 8), (17, 11), (17, 3); 
+INSERT INTO OrdersProducts (idOrder, idProduct)
+VALUES (17, 3); 
 
 
 
-
-
-
-
-
-
-
-
-
-drop database mydb;
-use mydb;
 
 
 

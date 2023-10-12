@@ -137,7 +137,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`OrdersProducts` (
   `idOrder` INT NOT NULL,
   `idProduct` INT NOT NULL,
-  PRIMARY KEY (`idOrder`, `idProduct`),
   INDEX `fk_Order_has_Products_Products1_idx` (`idProduct` ASC) VISIBLE,
   INDEX `fk_Order_has_Products_Order1_idx` (`idOrder` ASC) VISIBLE,
   CONSTRAINT `fk_Order_has_Products_Order1`
