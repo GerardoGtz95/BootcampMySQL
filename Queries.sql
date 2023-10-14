@@ -3,7 +3,7 @@
 -- NOTA: LOS IDS PUEDEN CAMBIAR
 INSERT INTO Customers (name, lastName , birthDate, phoneNumber, email)
 VALUES
-('José Luis', 'Jerónimo', '1992-10-05', '3320258030', 'jose.jeronimo@gmail.com');
+('Fernando Luis', 'Montes', '1992-10-05', '3320258030', 'jose.jeronimo@gmail.com');
 
 UPDATE Customers
 SET lastName = "López"
@@ -11,9 +11,9 @@ WHERE idCustomers = 8;
 
 INSERT INTO Reservations (date, idCustomer, idTable, idEmployees)
 VALUES 
-('2023-10-05 20:30:00', 7, 1, 2);
+('2023-10-05 20:30:00', 9, 1, 2);
 
-DELETE FROM Customers WHERE idCustomers = 7;
+DELETE FROM Customers WHERE idCustomers = 9;
 SELECT * FROM Customers;
 SELECT * FROM Reservations;
 
@@ -25,7 +25,7 @@ JOIN OrdersProducts op
 ON o.idOrder = op.idOrder
 JOIN Products p
 ON p.idProduct = op.idProduct
-WHERE o.idOrder = 1
+WHERE o.idOrder = 2
 
 -- TOTALES DE LA ORDEN 2
 SELECT o.idOrder 'Orden No',SUM(p.price) as 'Total', SUM(p.price) * 1.16 as `Total IVA`, 
@@ -67,7 +67,7 @@ SELECT Cliente, Platillo, MAX(Total) as 'Comida Favorita' FROM (
     ON o.idOrder = op.idOrder
     JOIN Products p
     ON p.idProduct = op.idProduct
-    WHERE c.name = 'Alejandra' 
+    WHERE c.name = 'Elizabeth' 
     GROUP BY p.name
 ) resultado;
 
